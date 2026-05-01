@@ -1,5 +1,42 @@
 # Project Conventions
 
+## ⚠️ CRITICAL: Prompt Repository as Single Source of Truth
+
+**This repository IS the project.** Every change to the product MUST be reflected here FIRST.
+
+### Golden Rule
+> The Prompt Repository at `https://github.com/alirezaideep/ai-factory-prompt-repo` is the
+> single source of truth for all project decisions, architecture, data models, APIs, workflows,
+> and UI specifications. No code is produced without first updating the relevant files in this repo.
+
+### Update Protocol
+1. **Before any code change:** Update the relevant `.md` file(s) in this repo
+2. **After any code change:** Commit the repo update with proper version bump
+3. **Every session:** AI must read the latest state of relevant files before producing output
+4. **Conflict resolution:** If code and repo disagree, THE REPO WINS
+
+### What Gets Updated
+| Change Type | Files to Update | Version Bump |
+|-------------|----------------|---------------|
+| New feature | `features/<name>/feature_brief.md` + subdirs | MINOR |
+| API change | `features/<name>/back/api_endpoints.md` | MINOR |
+| DB schema change | `features/<name>/back/data_model.md` | MINOR |
+| UI change | `features/<name>/front/pages.md` + `ui/wireframes.md` | PATCH |
+| Workflow change | `features/<name>/workflows/*.md` | PATCH |
+| Bug fix | `context_packs/memory/known_issues.md` | PATCH |
+| Architecture decision | `context_packs/memory/decisions_log.md` | PATCH |
+| Convention change | This file (`conventions.md`) | PATCH |
+
+### Git Push After Every Change
+```bash
+cd ai_factory_prompt_repo
+git add -A
+git commit -m "<type>(<scope>): <description>"
+git push origin main
+```
+
+---
+
 ## Code Style
 
 ### TypeScript (Frontend + Backend Services)
