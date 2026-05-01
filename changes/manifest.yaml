@@ -1,0 +1,47 @@
+project: ai-software-factory
+current_version: "0.1.0"
+created: "2025-01-15"
+last_updated: "2025-02-20"
+
+versions:
+  - version: "0.1.0"
+    date: "2025-02-20"
+    type: "minor"
+    summary: "Initial repository structure — all modules defined, shared conventions established"
+    entry_file: "entries/v0.1.0.md"
+    breaking: false
+
+release_plan:
+  - version: "0.2.0"
+    target_date: "2025-03-15"
+    scope: "Command UI + Planning Service — first interactive loop"
+  - version: "0.3.0"
+    target_date: "2025-04-01"
+    scope: "Orchestrator + Agent Runtime — first automated execution"
+  - version: "0.4.0"
+    target_date: "2025-04-15"
+    scope: "Knowledge Base + Feedback Engine — learning loop"
+  - version: "1.0.0"
+    target_date: "2025-05-15"
+    scope: "Full platform — all modules integrated, production-ready"
+
+versioning_rules:
+  major: "Breaking API changes, incompatible schema migrations, fundamental architecture shifts"
+  minor: "New features, non-breaking API additions, new modules"
+  patch: "Bug fixes, documentation updates, minor improvements"
+  
+  triggers:
+    - change: "New feature module added"
+      bump: "minor"
+    - change: "API endpoint signature changed"
+      bump: "major"
+    - change: "Database schema migration"
+      bump: "minor (if additive) or major (if destructive)"
+    - change: "Bug fix in existing feature"
+      bump: "patch"
+    - change: "Documentation update only"
+      bump: "patch"
+    - change: "New context pack file"
+      bump: "patch"
+    - change: "Convention change"
+      bump: "minor"
